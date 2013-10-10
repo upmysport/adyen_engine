@@ -1,0 +1,26 @@
+= Adyen Engine
+
+A Rails engine built on top of the adyen gem, http://github.io/wvenbergen/adyen, to ease integration
+of Adyen payment services in your Ruby on Rails application.  It was built originally as a fork of the
+adyen gem codebase, but then pulled out into it's own repository to have a clear separation between core
+Adyen API integration, and Rails-specific integration.
+
+Please read the documentation for the Adyen library here: https://github.com/wvanbergen/adyen/wiki.
+
+== Usage
+
+* For more information about Adyen, see http://www.adyen.com
+* For more information about integrating Adyen, see their manuals at
+  http://support.adyen.com/links/documentation
+
+== About
+
+This package is written by Neill Pearmanfor upmysport.com, and made public under the MIT license (see 
+LICENSE). Its is currently maintained by Neill Pearman. I am not affiliated with Adyen B.V. The software 
+comes without warranty of any kind, so use at your own risk.
+
+Contributions are welcomed. Some notes:
+
+* Fork the project, implement your stuff and issue a pull request. Topic branches not necessary.
+* All functionality must include tests and preferably documentation.
+
