@@ -1,3 +1,0 @@
-Adyen.configuration.default_api_params = { :merchant_account => 'SuperShopper' }
-Adyen.configuration.api_username = 'SuperShopper'
-Adyen.configuration.api_password = 'secret'

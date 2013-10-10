@@ -71,7 +71,7 @@ describe Adyen::NotificationsController, 'when basic auth is disabled' do
 end
 
 describe Adyen::NotificationsController, 'when no config block is provided to the engine' do
-  it 'will raise the expected error' do expect { Adyen.setup }.to raise_error Adyen::ConfigMissing end
+  it 'will raise the expected error' do expect { Adyen.setup }.to raise_error AdyenEngine::ConfigMissing end
 end
 
 describe Adyen::NotificationsController, 'when no config has been run' do
@@ -90,7 +90,7 @@ describe Adyen::NotificationsController, 'when no config has been run' do
          merchant_reference: 'booking_ref',
          merchant_account_code: 'upmysport_test',
          event_date: event_date
-    }.to raise_error Adyen::NotConfigured
+    }.to raise_error AdyenEngine::NotConfigured
   end
 end
 

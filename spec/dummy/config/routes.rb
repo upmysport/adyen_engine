@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Adyen::Engine => "/adyen"
+  mount AdyenEngine::Engine => "/adyen"
 end

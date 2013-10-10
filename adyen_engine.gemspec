@@ -2,11 +2,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'adyen/version'
+require 'adyen_engine/version'
 
 Gem::Specification.new do |s|
   s.name    = "adyen_engine"
-  s.version = Adyen::VERSION
+  s.version = AdyenEngine::VERSION
 
   s.summary = "Integrate Adyen payment services in your Ruby on Rails application."
   s.description = <<-EOS

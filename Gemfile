@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'adyen', path: '/Users/neill/Code/adyen'
+gem 'adyen', git: 'git://github.com/upmysport/adyen.git', branch: 'just_core'
 
 group :development, :test do
   # jquery-rails is used by the dummy application

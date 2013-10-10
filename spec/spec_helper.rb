@@ -6,7 +6,6 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 
 RSpec.configure do |config|
-  config.include Adyen::Matchers
   config.include FactoryGirl::Syntax::Methods
 end
 

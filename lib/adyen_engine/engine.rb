@@ -1,4 +1,4 @@
-module Adyen
+module AdyenEngine
   class Engine < ::Rails::Engine
     isolate_namespace Adyen
   end
@@ -55,18 +55,21 @@ module Adyen
     end
   end
 
+end
+
+Adyen::Configuration.class_eval do
+  def engine
+    Adyen.config
+  end
+end
+
+module Adyen
   def self.setup(&block)
-    @config ||= ConfigContainer.new
+    @config ||= AdyenEngine::ConfigContainer.new
     @config.configure_with &block
   end
 
   def self.config
-    @config ||= ConfigContainer.new
-  end
-
-  Adyen::Configuration.class_eval do
-    def engine
-      Adyen.config
-    end
+    @config ||= AdyenEngine::ConfigContainer.new
   end
 end
