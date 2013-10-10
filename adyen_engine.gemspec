@@ -25,11 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3')
   s.add_development_dependency('factory_girl_rails')
 
-  if RUBY_VERSION < "1.9.3"
-    s.add_development_dependency('rails', '>= 2.3', '< 4')
-  else
-    s.add_development_dependency('rails', '>= 2.3')
-  end
+  s.add_dependency('rails', '>= 3.1.3')
   
   if RUBY_PLATFORM == 'java'
     s.add_development_dependency('nokogiri', '~> 1.4.6')
@@ -38,8 +34,6 @@ Gem::Specification.new do |s|
   else
     s.add_development_dependency('nokogiri', '~> 1.6.0')
   end
-  
-  s.add_runtime_dependency('jruby-openssl') if RUBY_PLATFORM == 'java'
   
   s.requirements << 'Having Nokogiri installed will speed up XML handling when using the SOAP API.'
 
