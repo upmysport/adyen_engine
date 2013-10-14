@@ -4,7 +4,7 @@ module PaymentsController
   module SpecHelper
     def create_params(overrides={})
       {'authResult' => 'AUTHORISED',
-       'pspReference' => '',
+       'pspReference' => 'PSP123',
        'merchantReference' => 'trans1',
        'skinCode' => 'skin_secret',
        'merchantSig' => '',
@@ -33,6 +33,10 @@ describe Adyen::PaymentsController, 'when a valid result is received' do
 
   it 'will give the correct merchant reference' do
     expect(controller.merchant_reference).to eq('trans1')
+  end
+
+  it 'will give the correct psp reference' do
+    expect(controller.psp_reference).to eq('PSP123')
   end
 
   it 'should respond with 200 success' do

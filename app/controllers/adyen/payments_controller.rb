@@ -31,4 +31,8 @@ class Adyen::PaymentsController < Adyen::ApplicationController
   def merchant_reference
     params[:merchantReference]
   end
+
+  def psp_reference
+    params[:pspReference]
+  end
 end
