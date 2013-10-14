@@ -25,7 +25,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3')
   s.add_development_dependency('factory_girl_rails')
 
-  s.add_dependency('rails', '>= 3.1.3')
+  if RUBY_VERSION < '1.9.3'
+    s.add_dependency('rails', '~> 3.1')
+  else
+    s.add_dependency('rails', '>= 3.1.3')
+  end
   
   if RUBY_PLATFORM == 'java'
     s.add_development_dependency('nokogiri', '~> 1.4.6')
