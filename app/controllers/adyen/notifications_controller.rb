@@ -8,7 +8,11 @@ class Adyen::NotificationsController < Adyen::ApplicationController
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.warn "Unable to log Adyen notification:\n#{e}"
       Rails.logger.warn "    #{e.backtrace.join("    \n")}"
+    rescue StandardError => e
+      Rails.logger.warn "Unexpected error while logging Adyen notifications:\n#{e}"
+      Rails.logger.warn "    #{e.backtrace.join("    \n")}"
     end
+
     render text: '[accepted]'
   end
 
