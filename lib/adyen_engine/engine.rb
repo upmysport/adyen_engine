@@ -1,6 +1,12 @@
 module AdyenEngine
   class Engine < ::Rails::Engine
     isolate_namespace Adyen
+
+    config.to_prepare do
+      Dir.glob(File.join(Rails.root, "app/decorators/adyen_engine/**/*_decorator*.rb")).each do |c|
+        require_dependency(c)
+      end
+    end
   end
 
   class ConfigContainer
