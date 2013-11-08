@@ -63,19 +63,3 @@ module AdyenEngine
 
 end
 
-Adyen::Configuration.class_eval do
-  def engine
-    Adyen.config
-  end
-end
-
-module Adyen
-  def self.setup(&block)
-    @config ||= AdyenEngine::ConfigContainer.new
-    @config.configure_with &block
-  end
-
-  def self.config
-    @config ||= AdyenEngine::ConfigContainer.new
-  end
-end
