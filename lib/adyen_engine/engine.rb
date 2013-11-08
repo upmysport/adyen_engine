@@ -3,8 +3,10 @@ module AdyenEngine
     isolate_namespace Adyen
 
     config.to_prepare do
-      Dir.glob(File.join(Rails.root, "app/decorators/adyen_engine/**/*_decorator*.rb")).each do |c|
-        require_dependency(c)
+      %w[adyen adyen_engine].each do |inc|
+        Dir.glob(File.join(Rails.root, "app/decorators/#{inc}/**/*_decorator*.rb")).each do |c|
+          require_dependency(c)
+        end
       end
     end
   end
