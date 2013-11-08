@@ -6,12 +6,14 @@
 class RecurringPaymentDetails < ActiveRecord::Base
   attr_accessible :expires_on, :holder_name, :last_four_digits, :reference, :variant
 
+  validates_presence_of :reference, :expires_on, :last_four_digits
+
   class << self
     # Maps a Adyen::API::RecurringService::ListResponse to a RecurringPaymentDetails
     # object and saves it to the database.
     def create_from!(response)
       card = response[:card]
-      expiry = card[:expiry_date].end_of_month
+      expiry = card[:expiry_date] ? card[:expiry_date].end_of_month : nil
       create! reference: response[:recurring_detail_reference],
               variant: response[:variant],
               expires_on: expiry,
