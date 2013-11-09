@@ -1,4 +1,5 @@
 require 'adyen'
 require 'adyen_module'
+require 'configuration_decorator'
 require 'adyen_engine/engine'
 require 'adyen_engine/railtie'
