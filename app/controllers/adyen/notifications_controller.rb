@@ -20,6 +20,10 @@ class Adyen::NotificationsController < Adyen::ApplicationController
   def authenticate
     unless Adyen.config.disable_basic_auth
       authenticate_or_request_with_http_basic do |username, password|
+        if username != Adyen.config.http_username or password != Adyen.config.http_password
+          Rails.logger.info "Unable to authenticate with username #{username}.  Configured username: #{Adyen.config.http_username}"
+        end
+
         username == Adyen.config.http_username && password == Adyen.config.http_password
       end
     end
