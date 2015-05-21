@@ -4,8 +4,6 @@
 # Currently, this only represents card details, with no inheritance to
 # accommodate ELV or bank details.
 class RecurringPaymentDetails < ActiveRecord::Base
-  attr_accessible :expires_on, :holder_name, :last_four_digits, :reference, :variant
-
   validates_presence_of :reference, :expires_on, :last_four_digits
 
   class << self
